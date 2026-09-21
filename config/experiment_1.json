@@ -1,0 +1,56 @@
+{
+  "experiment": {
+    "name": "AgentFace model-swap validation",
+    "purpose": "Keep the AgentFace beautification procedure fixed and swap only the SDXL model.",
+    "input_dir": "samples",
+    "output_dir": "outputs",
+    "images": [
+      "portrait_01.jpg",
+      "portrait_02.jpg",
+      "portrait_03.jpg",
+      "portrait_04.jpg"
+    ],
+    "prompt": "natural face retouching, subtle skin smoothing, clean healthy skin, preserve identity, preserve hair, accessories, expression and background, photorealistic",
+    "negative_prompt": "different person, altered identity, deformed face, extra eyes, extra mouth, blurry, cartoon, oversmoothed plastic skin",
+    "resolution": 1024,
+    "steps": 20,
+    "guidance_scale": 5.0,
+    "strength": 0.25,
+    "seed": 42
+  },
+  "models": [
+    {
+      "id": "RealVisXL_V5",
+      "display_name": "RealVisXL V5",
+      "path": "models/RealVisXL_V5",
+      "variant": "fp16",
+      "status": "ready",
+      "focus": "skin cleanup and blemish repair"
+    },
+    {
+      "id": "Juggernaut_XL_v9",
+      "display_name": "Juggernaut XL v9",
+      "path": "models/Juggernaut_XL_v9",
+      "variant": "fp16",
+      "status": "ready",
+      "focus": "skin texture and micro-detail"
+    },
+    {
+      "id": "CyberRealistic_XL",
+      "display_name": "CyberRealistic XL",
+      "path": "models/CyberRealistic_XL",
+      "single_file": "models/CyberRealistic_XL/CyberRealisticXLPlay_V5.7.safetensors",
+      "config_path": "models/RealVisXL_V5",
+      "expected_size": 6938040682,
+      "status": "ready",
+      "focus": "facial details"
+    },
+    {
+      "id": "epiCRealism_XL",
+      "display_name": "epiCRealism XL",
+      "path": "models/epiCRealism_XL",
+      "status": "ready",
+      "focus": "overall portrait realism"
+    }
+  ]
+}

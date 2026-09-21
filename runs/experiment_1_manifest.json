@@ -1,0 +1,149 @@
+{
+  "experiment": "AgentFace Experiment 1: pluggable beauty-model verification",
+  "created_at_utc": "2026-09-21T11:52:50.432284+00:00",
+  "fixed_settings": {
+    "input_dir": "samples",
+    "output_dir": "outputs",
+    "images": [
+      "portrait_01.jpg",
+      "portrait_02.jpg",
+      "portrait_03.jpg",
+      "portrait_04.jpg"
+    ],
+    "prompt": "natural face retouching, subtle skin smoothing, clean healthy skin, preserve identity, preserve hair, accessories, expression and background, photorealistic",
+    "negative_prompt": "different person, altered identity, deformed face, extra eyes, extra mouth, blurry, cartoon, oversmoothed plastic skin",
+    "resolution": 1024,
+    "steps": 20,
+    "guidance_scale": 5.0,
+    "strength": 0.25,
+    "seed": 42
+  },
+  "models": [
+    "RealVisXL V5",
+    "Juggernaut XL v9",
+    "CyberRealistic XL",
+    "epiCRealism XL"
+  ],
+  "inputs": [
+    {
+      "name": "portrait_01",
+      "files": [
+        {
+          "relative_path": "samples/portrait_01.jpg",
+          "bytes": 550852,
+          "sha256": "34ecbf3fc14e27ac0abf2f7982dbfd79cb36c940cb623a8c71215a2080255d3f"
+        },
+        {
+          "relative_path": "outputs/portrait_01/RealVisXL_V5.png",
+          "bytes": 1369958,
+          "sha256": "550f6f36fea86c7a0c206f0dd0c63f0d06a106660a028c51d1a6b0cb99b57c76"
+        },
+        {
+          "relative_path": "outputs/portrait_01/Juggernaut_XL_v9.png",
+          "bytes": 1355657,
+          "sha256": "9d9362b60591b0e159628ea024460f5468297d4a1604224dbb079df21be19d90"
+        },
+        {
+          "relative_path": "outputs/portrait_01/CyberRealistic_XL.png",
+          "bytes": 1351993,
+          "sha256": "091d6658097f98d8f5149dfd53dd4ac77ac437c0c26e0c5b09a4176faa54304c"
+        },
+        {
+          "relative_path": "outputs/portrait_01/epiCRealism_XL.png",
+          "bytes": 1318662,
+          "sha256": "a0b21d91402a09c5cd0d6c0d9c3bfb82857d0c5963a4f96a1852e566b597b0ca"
+        }
+      ]
+    },
+    {
+      "name": "portrait_02",
+      "files": [
+        {
+          "relative_path": "samples/portrait_02.jpg",
+          "bytes": 532386,
+          "sha256": "58f19ba2f813500cbccea5c6450fc1568e4d665dbe98888674ac2987c5c85ad8"
+        },
+        {
+          "relative_path": "outputs/portrait_02/RealVisXL_V5.png",
+          "bytes": 1322961,
+          "sha256": "7b269e2c572cc33861433b1fe5b487ec89468f2e19cbe32f7b6a0ef8c7bc20c7"
+        },
+        {
+          "relative_path": "outputs/portrait_02/Juggernaut_XL_v9.png",
+          "bytes": 1338579,
+          "sha256": "3dc2eb7fd42e9909474e4e9f691f925de6bc8071f898e53d51d92521df7ff7ba"
+        },
+        {
+          "relative_path": "outputs/portrait_02/CyberRealistic_XL.png",
+          "bytes": 1307651,
+          "sha256": "0ae712b0207d21dbb1bba7cbbec90359a1b9a2cf03adc7546ed5244bb8116e16"
+        },
+        {
+          "relative_path": "outputs/portrait_02/epiCRealism_XL.png",
+          "bytes": 1278937,
+          "sha256": "de518181b7a50d9cf54437f1598c8a4434107e1411f931eba2adf3a51134831f"
+        }
+      ]
+    },
+    {
+      "name": "portrait_03",
+      "files": [
+        {
+          "relative_path": "samples/portrait_03.jpg",
+          "bytes": 481913,
+          "sha256": "493b86ec723ad87de0b26dbaf10d68e996d35f62b95e15da67ae22fcc1ea28be"
+        },
+        {
+          "relative_path": "outputs/portrait_03/RealVisXL_V5.png",
+          "bytes": 1236804,
+          "sha256": "772ea6614151cddff0853e18615a8c2e9515f4a8e6ea08df62ffe28a70a0713d"
+        },
+        {
+          "relative_path": "outputs/portrait_03/Juggernaut_XL_v9.png",
+          "bytes": 1254308,
+          "sha256": "832b6fa35fb8034c39dee422386e67e607d024e98c8e9d0c043d7ad4fe252cc2"
+        },
+        {
+          "relative_path": "outputs/portrait_03/CyberRealistic_XL.png",
+          "bytes": 1227999,
+          "sha256": "17057cdb185f521d3cb714fa276a4a365b8df9dfc7e973af613cd3b3a2780ab7"
+        },
+        {
+          "relative_path": "outputs/portrait_03/epiCRealism_XL.png",
+          "bytes": 1181431,
+          "sha256": "53362a00ce523323d12e7fd0bca7455243fec5ceff8da56862fa91fb83843a32"
+        }
+      ]
+    },
+    {
+      "name": "portrait_04",
+      "files": [
+        {
+          "relative_path": "samples/portrait_04.jpg",
+          "bytes": 518922,
+          "sha256": "05e08ffc23795bead1acfb6ab4cfb4d008f05ef5ab7ab317acbe4dbcf810812d"
+        },
+        {
+          "relative_path": "outputs/portrait_04/RealVisXL_V5.png",
+          "bytes": 1267738,
+          "sha256": "981c45147755c502e571883515a083c2d3283d5392d4ef79bde93eb39d7063b4"
+        },
+        {
+          "relative_path": "outputs/portrait_04/Juggernaut_XL_v9.png",
+          "bytes": 1272846,
+          "sha256": "82de47fd930c341bf7273795409b58908cae992ed17e6e8b67016497c7224459"
+        },
+        {
+          "relative_path": "outputs/portrait_04/CyberRealistic_XL.png",
+          "bytes": 1259100,
+          "sha256": "31c7e778e2340bbdbd724eb4cd4c671201baa4508b7464183486b362e2b43c4f"
+        },
+        {
+          "relative_path": "outputs/portrait_04/epiCRealism_XL.png",
+          "bytes": 1218054,
+          "sha256": "31400822b4c308bffb75ac678c3bfc5f4b64c5605a577c1425c9f790cdfa3e57"
+        }
+      ]
+    }
+  ]
+}

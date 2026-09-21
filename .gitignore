@@ -1,0 +1,13 @@
+# Model weights are intentionally excluded from this public experiment record.
+models/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
+
+# Local execution by-products
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
