@@ -1,79 +1,85 @@
-# AgentFace Experiment 1: Pluggable Beautification Models
+# AgentFace 补充实验记录
 
-[中文实验报告](reports/实验一_美颜模型可插拔性验证.md)
+这个公开仓库记录了 AgentFace 的两个离线补充实验。实验均直接调用推理脚本完成，不启动网页、FastAPI 或数据库服务。
 
-This repository records an offline validation of AgentFace's interchangeable
-beautification-model position. It uses one fixed SDXL Img2Img procedure and
-only changes the plugged-in model. It does **not** claim that one model is
-universally better than another.
+| 实验 | 要验证什么 | 正式结果 |
+| --- | --- | --- |
+| 实验一：美颜模型可插拔性 | 同一位置能否替换不同的开源美颜模型 | 4 个模型均在统一流程下完成推理，生成 4×4=16 张结果图。 |
+| 实验二：反馈闭环优化 | 评分反馈能否更新参数，并影响后续生成 | 固定 RealVisXL V5，运行 5 轮×100 张；第 4 轮 FPEM 平均分比第 0 轮高 0.006702，100 张中 63 张提高、37 张降低。 |
 
-## What is included
+实验二的分数增幅很小，因此只说明：在本次单随机种子、FPEM 自动评分条件下，反馈闭环产生了小幅正向平均变化。它不表示所有图片的视觉效果都有明显提升，也不等同于人工主观评价。
 
-- Four public demo portraits in `samples/`
-- Sixteen generated results in `outputs/portrait_01/` through
-  `outputs/portrait_04/`
-- Five comparison sheets in `outputs/comparisons/`, including
-  `experiment_1_overview.png`
-- The fixed experiment contract in `config/experiment_1.json`
-- A SHA-256 manifest for the inputs and sixteen generated images in
-  `runs/experiment_1_manifest.json`
-- The unified offline runner in `code/run_model_swap.py`
+## 实验一：模型可插拔性
 
-The repository intentionally excludes model checkpoints and any original
-laboratory service code. Obtain checkpoints from their respective upstream
-publishers and comply with each model's licence and terms before reproducing
-the run.
+实验一固定输入图片、提示词、尺寸、步数、随机种子和保存规则，只替换前置美颜模型：
 
-## Result overview
+- RealVisXL V5：皮肤瑕疵修复方向；
+- Juggernaut XL v9：皮肤纹理和光影方向；
+- CyberRealistic XL：眼睛、嘴唇等五官细节方向；
+- epiCRealism XL：整体人物真实感方向。
 
-![Original image and four model outputs](outputs/comparisons/experiment_1_overview.png)
+4 张示例人像分别经过 4 个模型处理，共得到 16 张效果图。该实验验证的是统一接口下模型能够替换和正常运行，并不比较哪个模型绝对更好。
 
-## Fixed experiment contract
+![实验一：原图与四个模型结果](outputs/comparisons/experiment_1_overview.png)
 
-| Item | Value |
-| --- | --- |
-| Inputs | `portrait_01.jpg` to `portrait_04.jpg` |
-| Resolution | 1024 x 1024 |
-| Inference steps | 20 |
-| Guidance scale | 5.0 |
-| Denoising strength | 0.25 |
-| Random seed | 42 |
+- [实验一中文报告](reports/实验一_美颜模型可插拔性验证.md)
+- [固定实验配置](config/experiment_1.json)
+- [统一推理脚本](code/run_model_swap.py)
+- [输入与结果哈希清单](runs/experiment_1_manifest.json)
 
-The prompt and negative prompt are recorded verbatim in
-`config/experiment_1.json`.
+## 实验二：评分反馈闭环优化
 
-## Reproduce
+实验二固定 RealVisXL V5 及生成设置，用 100 张选定样本连续运行 5 轮。每轮先生成 100 张图片，再用 FPEM 自动评分；系统依据整批评分，对皮肤平滑、提亮、瑕疵修复三个参数进行受限的小步更新，并进入下一轮。
 
-1. Create a `models/` directory matching the paths in
-   `config/experiment_1.json` and supply the four checkpoints:
-   RealVisXL V5, Juggernaut XL v9, CyberRealistic XL, and epiCRealism XL.
-   Checkpoints are not distributed here.
-2. Install the dependencies:
+正式运行名为 `official_continuous`。完整性核验结果如下：
 
-   ```bash
-   pip install -r requirements-offline.txt
-   ```
+- 5 轮均生成并评分 100 张图，共 500 张 1024×1024 结果；
+- FPEM 在 5 轮中均严格加载，未出现缺失或意外权重；
+- 同一批图片重复评分一致；
+- 第 0→1 轮的 100 张同名输出均发生变化，说明更新确实进入了后续推理；
+- 第 0→4 轮平均 FPEM：2.038012 → 2.044714（+0.006702，+0.329%）；
+- 第 0→4 轮逐图配对：63 张提高，37 张降低，0 张相同。
 
-3. Verify local files before inference:
+![实验二：5 轮平均评分](experiment_2/outputs/comparisons/experiment_2_score_curve.png)
 
-   ```bash
-   python code/run_model_swap.py --check
-   ```
+![实验二：原图、第 0 轮与第 4 轮代表样本](experiment_2/outputs/comparisons/experiment_2_round0_vs_round4.png)
 
-4. Run all four models, or select one model with repeated `--model` flags:
+- [实验二中文报告：目的、过程、设置、结果和限制](experiment_2/reports/experiment_2_report_zh.md)
+- [实验二固定配置](experiment_2/config/experiment_2.json)
+- [反馈闭环推理脚本](experiment_2/code/run_feedback_loop.py)
+- [生成报告和对比图的脚本](experiment_2/code/create_experiment2_artifacts.py)
+- [逐轮评分汇总 CSV](experiment_2/reports/experiment_2_round_summary.csv)
+- [参数、产物与核验清单](experiment_2/runs/experiment_2_manifest.json)
+- [第 0 至第 4 轮逐图评分](experiment_2/scores/official_continuous/)
 
-   ```bash
-   python code/run_model_swap.py
-   ```
+## 仓库内容与未公开内容
 
-On a shared or memory-constrained GPU, set `SDXL_CPU_OFFLOAD=1`. This changes
-memory placement only; it does not change the fixed image-generation settings.
+本仓库包含实验脚本、固定配置、哈希/评分记录、实验报告及必要的结果对比图，方便查看实验过程和结论。
 
-## Scope
+以下内容刻意不上传：
 
-The runner is deliberately offline. It does not start the AgentFace web UI,
-FastAPI service, or database. The evidence is the sixteen images, the five
-comparison sheets, and the manifest included here.
+- SDXL、美颜模型和 FPEM 的权重；
+- 实验二的 100 张原始输入和 500 张全量结果图；
+- 实验室服务端代码、数据库和运行日志。
 
-The upstream AgentFace project is available at
-<https://github.com/GDUE-DVL/AgentFace>.
+因此，实验二的完整输入和全量输出仍保留在实验室服务器；公开仓库保留了可核验的统计、逐图分数、代表性对比图和用于复现流程的脚本。使用任何模型或数据集前，请自行遵守其许可证和使用要求。
+
+## 复现提示
+
+实验一需要把四个模型权重放入根目录下的 `models/`，然后执行：
+
+```bash
+pip install -r requirements-offline.txt
+python code/run_model_swap.py --check
+python code/run_model_swap.py
+```
+
+实验二还需要准备 100 张输入图到 `experiment_2/data/inputs/`、合法取得 FPEM 评分器及其权重，并按本机环境修改 `experiment_2/config/experiment_2.json` 中的评分器 Python 路径。准备完成后，在仓库根目录执行：
+
+```bash
+python experiment_2/code/run_feedback_loop.py --check
+python experiment_2/code/run_feedback_loop.py --run-name official_continuous
+python experiment_2/code/create_experiment2_artifacts.py
+```
+
+原始 AgentFace 项目：<https://github.com/GDUE-DVL/AgentFace>

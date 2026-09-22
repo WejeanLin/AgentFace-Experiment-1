@@ -11,3 +11,10 @@ __pycache__/
 *.py[cod]
 *.log
 .DS_Store
+
+# Experiment 2 uses a laboratory dataset and produces 500 full-resolution
+# images. The public repository keeps only score records and comparison panels.
+experiment_2/data/inputs/
+experiment_2/evaluator/
+experiment_2/models/
+experiment_2/outputs/official*/

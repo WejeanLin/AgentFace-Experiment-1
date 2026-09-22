@@ -1,0 +1,407 @@
+{
+  "checkpoint": "evaluator/pretrained/fpem_srcc_0.9243.pth (not distributed)",
+  "rows": [
+    {
+      "image": "00002.png",
+      "fpem_score": 2.549966812133789
+    },
+    {
+      "image": "00006.png",
+      "fpem_score": 3.594592571258545
+    },
+    {
+      "image": "00008.png",
+      "fpem_score": 2.6656205654144287
+    },
+    {
+      "image": "00009.png",
+      "fpem_score": 2.666213035583496
+    },
+    {
+      "image": "00027.png",
+      "fpem_score": 1.7324721813201904
+    },
+    {
+      "image": "00040.png",
+      "fpem_score": 2.836561679840088
+    },
+    {
+      "image": "00081.png",
+      "fpem_score": 3.0170271396636963
+    },
+    {
+      "image": "00121.png",
+      "fpem_score": 2.0312061309814453
+    },
+    {
+      "image": "00124.png",
+      "fpem_score": 1.7575660943984985
+    },
+    {
+      "image": "00145.png",
+      "fpem_score": 1.7565577030181885
+    },
+    {
+      "image": "00199.png",
+      "fpem_score": 1.6878620386123657
+    },
+    {
+      "image": "00228.png",
+      "fpem_score": 1.7151645421981812
+    },
+    {
+      "image": "00259.png",
+      "fpem_score": 1.7010841369628906
+    },
+    {
+      "image": "00322.png",
+      "fpem_score": 1.7214566469192505
+    },
+    {
+      "image": "00341.png",
+      "fpem_score": 1.935410976409912
+    },
+    {
+      "image": "00387.png",
+      "fpem_score": 1.7388132810592651
+    },
+    {
+      "image": "00400.png",
+      "fpem_score": 3.3711769580841064
+    },
+    {
+      "image": "00413.png",
+      "fpem_score": 1.9268343448638916
+    },
+    {
+      "image": "00540.png",
+      "fpem_score": 1.7533690929412842
+    },
+    {
+      "image": "00606.png",
+      "fpem_score": 1.8862231969833374
+    },
+    {
+      "image": "00680.png",
+      "fpem_score": 1.869279146194458
+    },
+    {
+      "image": "00696.png",
+      "fpem_score": 1.8834762573242188
+    },
+    {
+      "image": "00768.png",
+      "fpem_score": 2.5038743019104004
+    },
+    {
+      "image": "00800.png",
+      "fpem_score": 2.8029003143310547
+    },
+    {
+      "image": "00938.png",
+      "fpem_score": 1.6364191770553589
+    },
+    {
+      "image": "00953.png",
+      "fpem_score": 1.7988783121109009
+    },
+    {
+      "image": "00970.png",
+      "fpem_score": 2.802067995071411
+    },
+    {
+      "image": "01021.png",
+      "fpem_score": 1.7573297023773193
+    },
+    {
+      "image": "01084.png",
+      "fpem_score": 2.2774081230163574
+    },
+    {
+      "image": "01117.png",
+      "fpem_score": 1.831291675567627
+    },
+    {
+      "image": "01171.png",
+      "fpem_score": 1.7052611112594604
+    },
+    {
+      "image": "01174.png",
+      "fpem_score": 1.8410979509353638
+    },
+    {
+      "image": "01186.png",
+      "fpem_score": 2.1275007724761963
+    },
+    {
+      "image": "01263.png",
+      "fpem_score": 1.8466969728469849
+    },
+    {
+      "image": "01293.png",
+      "fpem_score": 2.484440803527832
+    },
+    {
+      "image": "01304.png",
+      "fpem_score": 1.6604031324386597
+    },
+    {
+      "image": "01321.png",
+      "fpem_score": 1.8067166805267334
+    },
+    {
+      "image": "01360.png",
+      "fpem_score": 1.7462732791900635
+    },
+    {
+      "image": "01388.png",
+      "fpem_score": 1.724380612373352
+    },
+    {
+      "image": "01401.png",
+      "fpem_score": 1.9173541069030762
+    },
+    {
+      "image": "01408.png",
+      "fpem_score": 1.6972239017486572
+    },
+    {
+      "image": "01409.png",
+      "fpem_score": 1.9114913940429688
+    },
+    {
+      "image": "01410.png",
+      "fpem_score": 1.6384341716766357
+    },
+    {
+      "image": "01426.png",
+      "fpem_score": 1.740240216255188
+    },
+    {
+      "image": "01470.png",
+      "fpem_score": 1.7868247032165527
+    },
+    {
+      "image": "01474.png",
+      "fpem_score": 2.279761791229248
+    },
+    {
+      "image": "01495.png",
+      "fpem_score": 3.1021203994750977
+    },
+    {
+      "image": "01519.png",
+      "fpem_score": 2.2799177169799805
+    },
+    {
+      "image": "01524.png",
+      "fpem_score": 1.8039470911026
+    },
+    {
+      "image": "01539.png",
+      "fpem_score": 1.7587451934814453
+    },
+    {
+      "image": "01565.png",
+      "fpem_score": 2.027555465698242
+    },
+    {
+      "image": "01576.png",
+      "fpem_score": 3.196507692337036
+    },
+    {
+      "image": "01602.png",
+      "fpem_score": 1.7847460508346558
+    },
+    {
+      "image": "01669.png",
+      "fpem_score": 2.016855478286743
+    },
+    {
+      "image": "01731.png",
+      "fpem_score": 1.7753907442092896
+    },
+    {
+      "image": "01758.png",
+      "fpem_score": 1.8116708993911743
+    },
+    {
+      "image": "01815.png",
+      "fpem_score": 1.8061561584472656
+    },
+    {
+      "image": "01926.png",
+      "fpem_score": 1.8056784868240356
+    },
+    {
+      "image": "01946.png",
+      "fpem_score": 1.8543000221252441
+    },
+    {
+      "image": "01994.png",
+      "fpem_score": 1.6794452667236328
+    },
+    {
+      "image": "02000.png",
+      "fpem_score": 2.6392102241516113
+    },
+    {
+      "image": "02016.png",
+      "fpem_score": 1.838875412940979
+    },
+    {
+      "image": "02042.png",
+      "fpem_score": 1.8193061351776123
+    },
+    {
+      "image": "02045.png",
+      "fpem_score": 2.228383779525757
+    },
+    {
+      "image": "02101.png",
+      "fpem_score": 1.827209234237671
+    },
+    {
+      "image": "02103.png",
+      "fpem_score": 1.691107153892517
+    },
+    {
+      "image": "02121.png",
+      "fpem_score": 2.2521450519561768
+    },
+    {
+      "image": "02131.png",
+      "fpem_score": 2.0460851192474365
+    },
+    {
+      "image": "02154.png",
+      "fpem_score": 2.054067850112915
+    },
+    {
+      "image": "02169.png",
+      "fpem_score": 2.0409774780273438
+    },
+    {
+      "image": "02231.png",
+      "fpem_score": 1.7300153970718384
+    },
+    {
+      "image": "02273.png",
+      "fpem_score": 1.7256755828857422
+    },
+    {
+      "image": "02295.png",
+      "fpem_score": 1.771713137626648
+    },
+    {
+      "image": "02312.png",
+      "fpem_score": 1.7192070484161377
+    },
+    {
+      "image": "02400.png",
+      "fpem_score": 2.949909210205078
+    },
+    {
+      "image": "02526.png",
+      "fpem_score": 1.619634747505188
+    },
+    {
+      "image": "02541.png",
+      "fpem_score": 1.6903529167175293
+    },
+    {
+      "image": "02542.png",
+      "fpem_score": 1.9868608713150024
+    },
+    {
+      "image": "02553.png",
+      "fpem_score": 2.092466115951538
+    },
+    {
+      "image": "02586.png",
+      "fpem_score": 2.854138135910034
+    },
+    {
+      "image": "02676.png",
+      "fpem_score": 1.8490387201309204
+    },
+    {
+      "image": "02728.png",
+      "fpem_score": 1.738844394683838
+    },
+    {
+      "image": "02801.png",
+      "fpem_score": 1.773433804512024
+    },
+    {
+      "image": "02805.png",
+      "fpem_score": 1.7680234909057617
+    },
+    {
+      "image": "02825.png",
+      "fpem_score": 1.8372886180877686
+    },
+    {
+      "image": "02855.png",
+      "fpem_score": 1.6680543422698975
+    },
+    {
+      "image": "02936.png",
+      "fpem_score": 1.8721246719360352
+    },
+    {
+      "image": "02946.png",
+      "fpem_score": 1.7945743799209595
+    },
+    {
+      "image": "03096.png",
+      "fpem_score": 1.8753409385681152
+    },
+    {
+      "image": "03152.png",
+      "fpem_score": 2.68472957611084
+    },
+    {
+      "image": "03264.png",
+      "fpem_score": 2.0085184574127197
+    },
+    {
+      "image": "03265.png",
+      "fpem_score": 1.6965479850769043
+    },
+    {
+      "image": "03394.png",
+      "fpem_score": 1.9195551872253418
+    },
+    {
+      "image": "03449.png",
+      "fpem_score": 1.9144119024276733
+    },
+    {
+      "image": "03475.png",
+      "fpem_score": 2.777855634689331
+    },
+    {
+      "image": "03492.png",
+      "fpem_score": 2.009535551071167
+    },
+    {
+      "image": "03628.png",
+      "fpem_score": 1.8239071369171143
+    },
+    {
+      "image": "03914.png",
+      "fpem_score": 1.8024946451187134
+    },
+    {
+      "image": "03934.png",
+      "fpem_score": 1.6223833560943604
+    },
+    {
+      "image": "04000.png",
+      "fpem_score": 2.9619951248168945
+    }
+  ],
+  "missing_keys": [],
+  "unexpected_keys": []
+}

@@ -1,0 +1,159 @@
+{
+  "experiment": "Experiment 2: feedback-loop optimization",
+  "formal_run": "official_continuous",
+  "generated_at_utc": "2026-09-21T16:23:24.325783+00:00",
+  "public_export_note": "The server-specific scorer Python path was replaced with a placeholder for this public export; all remaining fields record the formal run configuration.",
+  "effective_config": {
+    "name": "AgentFace feedback-loop optimization",
+    "purpose": "Keep the SDXL base model and diffusion settings fixed, score each output, and use a bounded batch feedback update to change only the beautification profile.",
+    "input_dir": "data/inputs",
+    "input_manifest": "data/inputs_manifest.json",
+    "model_id": "RealVisXL_V5",
+    "model_path": "../models/RealVisXL_V5",
+    "resolution": 1024,
+    "steps": 20,
+    "guidance_scale": 5.0,
+    "strength": 0.25,
+    "seed": 42,
+    "rounds": 5,
+    "image_count": 100,
+    "base_prompt": "natural face retouching, clean healthy skin, preserve identity, preserve facial geometry, preserve hair, accessories, expression and background, photorealistic",
+    "negative_prompt": "different person, altered identity, deformed face, extra eyes, extra mouth, blurry, cartoon, plastic skin, waxy skin, excessive whitening",
+    "prompt_parameter_encoding": "semantic strength label plus compact continuous 0-to-5 strength for each learnable beautification parameter",
+      "scorer_python": "<path-to-python-with-FPEM-dependencies>",
+    "scorer_script": "evaluator/fpem_score.py",
+    "scorer_root": "evaluator",
+    "scorer_checkpoint": "evaluator/pretrained/fpem_srcc_0.9243.pth",
+    "star_mapping": "star = clamp(floor(fpem_score + 0.5), 1, 5)",
+    "preference_learning_rate": 0.4,
+    "exploration_delta": 0.35,
+    "feedback_update": {
+      "method": "batch_directional_fpem",
+      "score_scale": 0.02,
+      "max_step": 0.1,
+      "bounds": {
+        "skin_smoothing": [
+          1.0,
+          3.0
+        ],
+        "whitening": [
+          0.0,
+          2.0
+        ],
+        "blemish_removal": [
+          2.0,
+          4.0
+        ]
+      }
+    },
+    "learnable_parameters": [
+      "skin_smoothing",
+      "whitening",
+      "blemish_removal"
+    ],
+    "default_beautify_params": {
+      "skin_smoothing": 2.0,
+      "whitening": 1.0,
+      "eye_enlargement": 1.5,
+      "face_slimming": 1.0,
+      "blush": 1.0,
+      "lip_color_adjustment": 1.0,
+      "blemish_removal": 3.0,
+      "nose_reshaping": 0.5,
+      "eyebrow_adjustment": 1.0
+    }
+  },
+  "validation": {
+    "formal_run": "official_continuous",
+    "round_counts": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "score_row_counts": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "output_count": 500,
+    "output_sizes": {
+      "1024x1024": 500
+    },
+    "scorer_missing_keys": [
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "scorer_unexpected_keys": [
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "scorer_repeat_identical": true,
+    "round_00_to_round_01_changed_output_hashes": 100,
+    "round_00_to_round_01_total": 100,
+    "round_00_to_round_04_mean_fpem_delta": 0.006701796054840088,
+    "round_00_to_round_04_median_fpem_delta": 0.003045797348022461,
+    "round_00_to_round_04_increased": 63,
+    "round_00_to_round_04_decreased": 37,
+    "round_00_to_round_04_tied": 0
+  },
+  "selected_comparison_samples": [
+    {
+      "image": "03914.png",
+      "round_00_to_round_04_fpem_delta": -0.06371855735778809,
+      "selection_group": "largest decrease"
+    },
+    {
+      "image": "02154.png",
+      "round_00_to_round_04_fpem_delta": -0.06128418445587158,
+      "selection_group": "largest decrease"
+    },
+    {
+      "image": "00081.png",
+      "round_00_to_round_04_fpem_delta": 0.0029439926147460938,
+      "selection_group": "near median change"
+    },
+    {
+      "image": "02169.png",
+      "round_00_to_round_04_fpem_delta": 0.003147602081298828,
+      "selection_group": "near median change"
+    },
+    {
+      "image": "00006.png",
+      "round_00_to_round_04_fpem_delta": 0.0028705596923828125,
+      "selection_group": "near median change"
+    },
+    {
+      "image": "02728.png",
+      "round_00_to_round_04_fpem_delta": 0.0025783777236938477,
+      "selection_group": "near median change"
+    },
+    {
+      "image": "00606.png",
+      "round_00_to_round_04_fpem_delta": 0.1689385175704956,
+      "selection_group": "largest increase"
+    },
+    {
+      "image": "01084.png",
+      "round_00_to_round_04_fpem_delta": 0.1425914764404297,
+      "selection_group": "largest increase"
+    }
+  ],
+  "artifacts": [
+    "outputs/comparisons/experiment_2_score_curve.png",
+    "outputs/comparisons/experiment_2_score_curve.svg",
+    "outputs/comparisons/experiment_2_score_curve.pdf",
+    "outputs/comparisons/experiment_2_round0_vs_round4.png",
+    "reports/experiment_2_round_summary.csv",
+    "reports/experiment_2_report_zh.md"
+  ]
+}

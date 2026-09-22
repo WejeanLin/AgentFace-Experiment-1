@@ -1,0 +1,53 @@
+{
+  "experiment": {
+    "name": "AgentFace feedback-loop optimization",
+    "purpose": "Keep the SDXL base model and diffusion settings fixed, score each output, and use a bounded batch feedback update to change only the beautification profile.",
+    "input_dir": "data/inputs",
+    "input_manifest": "data/inputs_manifest.json",
+    "model_id": "RealVisXL_V5",
+    "model_path": "../models/RealVisXL_V5",
+    "resolution": 1024,
+    "steps": 20,
+    "guidance_scale": 5.0,
+    "strength": 0.25,
+    "seed": 42,
+    "rounds": 5,
+    "image_count": 100,
+    "base_prompt": "natural face retouching, clean healthy skin, preserve identity, preserve facial geometry, preserve hair, accessories, expression and background, photorealistic",
+    "negative_prompt": "different person, altered identity, deformed face, extra eyes, extra mouth, blurry, cartoon, plastic skin, waxy skin, excessive whitening",
+    "prompt_parameter_encoding": "semantic strength label plus compact continuous 0-to-5 strength for each learnable beautification parameter",
+    "scorer_python": "<path-to-python-with-FPEM-dependencies>",
+    "scorer_script": "evaluator/fpem_score.py",
+    "scorer_root": "evaluator",
+    "scorer_checkpoint": "evaluator/pretrained/fpem_srcc_0.9243.pth",
+    "star_mapping": "star = clamp(floor(fpem_score + 0.5), 1, 5)",
+    "preference_learning_rate": 0.4,
+    "exploration_delta": 0.35,
+    "feedback_update": {
+      "method": "batch_directional_fpem",
+      "score_scale": 0.02,
+      "max_step": 0.1,
+      "bounds": {
+        "skin_smoothing": [1.0, 3.0],
+        "whitening": [0.0, 2.0],
+        "blemish_removal": [2.0, 4.0]
+      }
+    },
+    "learnable_parameters": [
+      "skin_smoothing",
+      "whitening",
+      "blemish_removal"
+    ],
+    "default_beautify_params": {
+      "skin_smoothing": 2.0,
+      "whitening": 1.0,
+      "eye_enlargement": 1.5,
+      "face_slimming": 1.0,
+      "blush": 1.0,
+      "lip_color_adjustment": 1.0,
+      "blemish_removal": 3.0,
+      "nose_reshaping": 0.5,
+      "eyebrow_adjustment": 1.0
+    }
+  }
+}
